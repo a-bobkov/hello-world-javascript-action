@@ -16,17 +16,17 @@ export async function run() {
     const time = new Date().toTimeString()
     core.setOutput('time', time)
 
-    // Output the payload for debugging
-    core.info(
-      `The event payload: ${JSON.stringify(github.context.payload, null, 2)}`
-    )
-
     await fs.mkdir('pages', { recursive: true })
     await fs.writeFile('pages/test.txt', 'Hello World!', { encoding: 'utf8' })
 
     const content = await fs.readFile('pages/test.txt', { encoding: 'utf8' })
 
     core.info(`Content: ${content}`)
+
+    // Output the payload for debugging
+    core.info(
+      `The event payload: ${JSON.stringify(github.context.payload, null, 2)}`
+    )
   } catch (error) {
     // Fail the workflow step if an error occurs
     core.setFailed(error.message)
