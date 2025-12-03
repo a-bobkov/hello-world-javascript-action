@@ -31242,6 +31242,8 @@ async function run() {
     const time = new Date().toTimeString();
     coreExports.setOutput('time', time);
 
+    coreExports.info(`Hello, Man!`);
+
     await fs.mkdir('pages', { recursive: true });
     await fs.writeFile('pages/test.txt', 'Hello World!', { encoding: 'utf8' });
 

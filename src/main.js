@@ -16,6 +16,8 @@ export async function run() {
     const time = new Date().toTimeString()
     core.setOutput('time', time)
 
+    core.info(`Hello, Man!`)
+
     await fs.mkdir('pages', { recursive: true })
     await fs.writeFile('pages/test.txt', 'Hello World!', { encoding: 'utf8' })
 
