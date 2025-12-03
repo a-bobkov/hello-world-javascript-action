@@ -12,11 +12,15 @@ export async function run() {
     const whoToGreet = core.getInput('who-to-greet', { required: true })
     core.info(`Hello, ${whoToGreet}!`)
 
+    core.info(`Hello, 1`)
+
     // Get the current time and set as an output
     const time = new Date().toTimeString()
+    core.info(`Hello, 2`)
+
     core.setOutput('time', time)
 
-    core.info(`Hello, Man!`)
+    core.info(`Hello, 3`)
 
     await fs.mkdir('pages', { recursive: true })
     await fs.writeFile('pages/test.txt', 'Hello World!', { encoding: 'utf8' })

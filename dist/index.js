@@ -31238,11 +31238,15 @@ async function run() {
     const whoToGreet = coreExports.getInput('who-to-greet', { required: true });
     coreExports.info(`Hello, ${whoToGreet}!`);
 
+    coreExports.info(`Hello, 1`);
+
     // Get the current time and set as an output
     const time = new Date().toTimeString();
+    coreExports.info(`Hello, 2`);
+
     coreExports.setOutput('time', time);
 
-    coreExports.info(`Hello, Man!`);
+    coreExports.info(`Hello, 3`);
 
     await fs.mkdir('pages', { recursive: true });
     await fs.writeFile('pages/test.txt', 'Hello World!', { encoding: 'utf8' });
