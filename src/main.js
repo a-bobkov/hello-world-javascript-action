@@ -22,7 +22,11 @@ export async function run() {
     )
 
     await fs.mkdir('pages', { recursive: true })
-    await fs.writeFile('pages/test.txt', 'Hello World!')
+    await fs.writeFile('pages/test.txt', 'Hello World!', { encoding: 'utf8' })
+
+    const content = await fs.readFile('pages/test.txt', { encoding: 'utf8' })
+
+    core.info(`Content: ${content}`)
   } catch (error) {
     // Fail the workflow step if an error occurs
     core.setFailed(error.message)
