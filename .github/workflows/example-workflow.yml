@@ -27,3 +27,8 @@ jobs:
         uses: actions/hello-world-javascript-action@main
         with:
           who-to-greet: ${{ inputs.who-to-greet }}
+      - name: Archive test artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-without-markdown
+          path: pages/test.txt

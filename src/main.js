@@ -1,5 +1,6 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
+import * as fs from 'node:fs/promises'
 
 /**
  * The main function for the action.
@@ -19,6 +20,9 @@ export async function run() {
     core.info(
       `The event payload: ${JSON.stringify(github.context.payload, null, 2)}`
     )
+
+    await fs.mkdir('pages', { recursive: true })
+    await fs.writeFile('pages/test.txt', 'Hello World!')
   } catch (error) {
     // Fail the workflow step if an error occurs
     core.setFailed(error.message)

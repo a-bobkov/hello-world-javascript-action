@@ -25,6 +25,7 @@ import require$$6 from 'string_decoder';
 import require$$0$7 from 'diagnostics_channel';
 import require$$2$3 from 'child_process';
 import require$$6$1 from 'timers';
+import * as fs from 'node:fs/promises';
 
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
@@ -31245,6 +31246,9 @@ async function run() {
     coreExports.info(
       `The event payload: ${JSON.stringify(githubExports.context.payload, null, 2)}`
     );
+
+    await fs.mkdir('pages', { recursive: true });
+    await fs.writeFile('pages/test.txt', 'Hello World!');
   } catch (error) {
     // Fail the workflow step if an error occurs
     coreExports.setFailed(error.message);
