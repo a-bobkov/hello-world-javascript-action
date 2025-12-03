@@ -31249,11 +31249,9 @@ async function run() {
     coreExports.info(`Hello, 3`);
 
     await fs.mkdir('pages', { recursive: true });
-    await fs.writeFile('pages/test.txt', 'Hello World!', { encoding: 'utf8' });
-
-    const content = await fs.readFile('pages/test.txt', { encoding: 'utf8' });
-
-    coreExports.info(`Content: ${content}`);
+    await fs.writeFile('pages/test.json', JSON.stringify({ test: 'hello' }), {
+      encoding: 'utf8'
+    });
 
     // Output the payload for debugging
     coreExports.info(
