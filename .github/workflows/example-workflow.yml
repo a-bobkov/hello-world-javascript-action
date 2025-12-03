@@ -24,7 +24,7 @@ jobs:
       # actions/hello-world-javascript-action@v1.2.3
       - name: Print to Log
         id: print-to-log
-        uses: actions/hello-world-javascript-action@main
+        uses: a-bobkov/hello-world-javascript-action@main
         with:
           who-to-greet: ${{ inputs.who-to-greet }}
       - name: Archive test artifact
